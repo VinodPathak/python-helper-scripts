@@ -1,0 +1,23 @@
+#Input
+image  
+--A  
+----A1.png  
+----A2.png  
+.  
+.  
+.  
+--B  
+----B1.png  
+----B2.png  
+.  
+.  
+.  
+
+
+#Output - oldfolders = 'curated', newfolders = 'reverse'  
+for folder in os.listdir(oldfolders):
+    os.mkdir('/'.join([newfolders,folder]))
+    for file in os.listdir(os.path.join(folders,folder)):
+        alphabet = cv2.imread(os.path.join(folders,folder,file))
+        imagem = cv2.bitwise_not(alphabet)
+        cv2.imwrite('/'.join([newfolders,folder,file]),imagem)
